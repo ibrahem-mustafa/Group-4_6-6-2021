@@ -92,26 +92,29 @@ var userAge = 19;
 
 // recursive function
 
-var count = 0;
 
-function counter(toNum) {
-	count++;
-	console.log(count);
-	if (count < toNum) {
-		counter(toNum);
-	}
-}
-// counter(20)
+// var count = 0;
 
-// function arguments
 
-function funWithArguments(x, cb) {
-	console.log(x);
 
-	if (cb) {
-		cb();
-	}
-}
+// function counter(toNum) {
+// 	count++;
+// 	console.log(count);
+// 	if (count < toNum) {
+// 		counter(toNum);
+// 	}
+// }
+// // counter(20)
+
+// // function arguments
+
+// function funWithArguments(x, cb) {
+// 	console.log(x);
+
+// 	if (cb) {
+// 		cb();
+// 	}
+// }
 
 // funWithArguments('ahmed');
 // funWithArguments(12);
@@ -161,12 +164,32 @@ var user = {
 }
 
         
-user.print();
+// user.print();
 
-user.location.printLocation()
+// user.location.printLocation()
 
 
 // HOISTING
+// var count 
+
+// console.log(count)
+
+// count = 0;
+
+// sayHi()
+
+// function sayHi() {
+//     console.log('hi')
+// }
+
+
+// sayHello()
+
+// var sayHello = function () {
+//     console.log('Hello')
+// }
+
+// sayHello()
 
 // GUI => Graphical User Interface
 // CLI => Command Line Interface
@@ -177,20 +200,37 @@ user.location.printLocation()
  */
 
 // fetch from api
+// https://jsonplaceholder.typicode.com/todos
 
-// fetch("https://jsonplaceholder.typicode.com/todos")
-//   .then((response) => {
 
-//         // console.log(response)
-//       return response.json();
-//   })
-//   .then(function (todos) {
-//       const todosList = document.querySelector('.todos')
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (data) {
+    var todoList = document.querySelector('.todos')
+    
+    data.forEach(function (todo) {
+        // create (li) element
+        var li = document.createElement('li')
+        // assign todo title as text to (li)
+        li.textContent = todo.title
+        // append (li) to todoList (ul)
+        todoList.appendChild(li)
+    })
 
-//       for (var i = 0; i < todos.length; i++) {
-//           const ele = document.createElement('li')
-//           ele.innerText = todos[i].title
+  });
 
-//           todosList.appendChild(ele)
-//       }
-//   });
+// const p  = document.getElementById('text')
+
+
+// console.log(p.innerText)
+// console.log(p.textContent)
+// console.log(p.innerHTML)
+
+// p.innerText = 'Welcome'
+// p.textContent = 'Welcome Again'
+// p.innerHTML = 'Hello <span> World</span>'
+
+
+
