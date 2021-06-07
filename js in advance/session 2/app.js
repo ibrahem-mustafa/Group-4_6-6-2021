@@ -421,11 +421,11 @@ console.log(targetUsers)
 // setInterval
 
 let counter = 0
-
+const counterElement = document.getElementById('counter')
 const counterInterval = setInterval(() => {
     counter++
     console.log('After ' + counter + ' Sec')
-
+    counterElement.textContent = counter
     if (counter >= 10) {
       clearInterval(counterInterval);
     }
