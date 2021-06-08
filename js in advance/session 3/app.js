@@ -169,10 +169,8 @@ let salaries = [1000, 2000, 3000, 4000];
 
 // console.log(salaries)
 
-
-salaries = salaries.map( (salary) => salary * 2 )
-console.log(salaries)
-
+salaries = salaries.map((salary) => salary * 2);
+// console.log(salaries)
 
 // |-----|
 // |     | =>  ()
@@ -183,43 +181,151 @@ console.log(salaries)
 // ******************************************************************** //
 // concat
 
-const arr1 = [10, 20, 30, 40]
-const arr2 = [50, 60, 70, 80]
-const arr3 = [90, 100, 110, 120]
+const arr1 = [10, 20, 30, 40];
+const arr2 = [50, 60, 70, 80];
+const arr3 = [90, 100, 110, 120];
 
-const fullArray = arr1.concat(arr2, arr3)
+const fullArray = arr1.concat(arr2, arr3);
 
-console.log(fullArray)
+// console.log(fullArray)
 
 // ******************************************************************** //
 // ******************************************************************** //
 // ******************************************************************** //
 // splice vs slice
 
-const tags = ['article', 'sport', 'medical', 'applications', 'programming']
+const tags = ['article', 'sport', 'medical', 'applications', 'programming'];
 
-const withSlice = tags.slice(0, 3)
+const withSlice = tags.slice(0, 3);
 
-console.log(withSlice)
-console.log(tags)
+// console.log(withSlice)
+// console.log(tags)
 
-const withSplice = tags.splice(0, 3, 'food', 'tv show', )
+const withSplice = tags.splice(0, 3, 'food', 'tv show');
 
-console.log(withSplice)
-console.log(tags)
-
+// console.log(withSplice)
+// console.log(tags)
 
 // ******************************************************************** //
 // ******************************************************************** //
 // ******************************************************************** //
+
+const user = {
+	name: 'ahmed',
+	email: 'ahmed@gmail.com',
+	age: 30,
+	salary: 4000,
+};
 
 // Object.keys
 
-// Object.values
+// const keys = Object.keys(user)
+// console.log(keys)
+
+// for (let key of keys) {
+//     console.log(user[key])
+// }
+
+// // Object.values
+
+// const values = Object.values(user)
+// console.log(values)
 
 // Object.entries
 
+const transformToArray = Object.entries(user);
+// console.log(transformToArray)
 // ******************************************************************** //
 // ******************************************************************** //
 // ******************************************************************** //
 // async function and await
+
+// const p1 = new Promise((resolve, reject) => {
+// 	const connectionSuccess = true;
+
+// 	setTimeout(() => {
+// 		if (connectionSuccess) {
+// 			resolve('Promise 1 Connection Success');
+// 		} else {
+// 			reject('Promise 1 Connection Failed');
+// 		}
+// 	}, 2000);
+// });
+
+// const p2 = new Promise((resolve, reject) => {
+// 	const connectionSuccess = false;
+
+// 	setTimeout(() => {
+// 		if (connectionSuccess) {
+// 			resolve('Promise 2 Connection Success');
+// 		} else {
+// 			reject('Promise 2 Connection Failed');
+// 		}
+// 	}, 1000);
+// });
+
+// const p3 = new Promise((resolve, reject) => {
+// 	const connectionSuccess = true;
+
+// 	setTimeout(() => {
+// 		if (connectionSuccess) {
+// 			resolve('Promise 3 Connection Success');
+// 		} else {
+// 			reject('Promise 3 Connection Failed');
+// 		}
+// 	}, 3000);
+// });
+
+// p1 => p2 => p3
+
+// Promise 1 Start
+
+// p1.then((result) => {
+
+//     console.log(result)
+
+//     // Promise 2 start
+//     p2.then((result2) => {
+
+//         console.log(result2)
+
+//         // Promise 3 start
+//         p3.then((result3) => {
+
+//             console.log(result3)
+//         })
+//         .catch((err) => {
+//             // Promise 3 Failed
+//         })
+
+//     }).catch((err) => {
+//         // Promise 2 Failed
+//         console.log(err)
+//     })
+
+// }).catch((err) => {
+//     // Promise 1 Failed
+//     console.log(err)
+// })
+
+// async function stablishConnection() {
+// 	try {
+// 		const result1 = await p1;
+// 		console.log(result1);
+// 		const result2 = await p2;
+// 		console.log(result2);
+// 		const result3 = await p3;
+// 		console.log(result3);
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// }
+
+// stablishConnection();
+
+
+(async function fetchTodoList() {
+    const response = await fetch('http://jsonplaceholder.typicode.com/todos')
+    const data = await response.json()
+    console.log(data)
+})()
