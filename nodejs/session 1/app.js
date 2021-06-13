@@ -1,6 +1,10 @@
 const http = require('http');
 const fs = require('fs');
+const fsHelpers = require('../session 2/helpers/fs')
 
+
+
+// fsHelpers.readFileAndLog()
 // fs.mkdir('test2/aka', (err) => {
 //     if (err) {console.log('Error Found')}
 // })
