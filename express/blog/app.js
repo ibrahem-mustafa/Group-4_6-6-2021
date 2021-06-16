@@ -5,6 +5,7 @@ var logger = require('morgan');
 const {connectToDB} = require('./config/db.config')
 
 const articleRouter = require('./routes/article.routes')
+const authRouter = require('./routes/auth.routes');
 
 var app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/article', articleRouter)
+app.use('/auth', authRouter)
 
 // app.use('/auth', authRouter)
 
