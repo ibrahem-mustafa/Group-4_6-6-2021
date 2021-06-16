@@ -2,11 +2,13 @@ var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const {connectToDB} = require('./config/db.config')
 
 const articleRouter = require('./routes/article.routes')
 
 var app = express();
 
+connectToDB();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,7 +26,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // render the error page
+  console.log(err)
   res.status(err.status || 500);
   res.json({ err })
 });
