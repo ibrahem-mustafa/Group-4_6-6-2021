@@ -124,29 +124,38 @@ router.put('/:id',ValidateToken, async (req, res) => {
 
 	// OPTION 1
 
-	const user = req.user;
+	// const user = req.user;
 
-	const article = await Article.findById(id);
+	// const article = await Article.findById(id);
 
 
-	if (article.publisher.id != user.id) return res.status(403).json({
-		msg: "You Are Not Allowed For This Action"
-	})
+	// if (article.publisher.id != user.id) return res.status(403).json({
+	// 	msg: "You Are Not Allowed For This Action"
+	// })
 
-	article.title = title ? title : article.title;
-	article.content = content ? content :article.content;
-	await article.save()
+	// article.title = title ? title : article.title;
+	// article.content = content ? content :article.content;
+	// await article.save()
 
 	// OPTION 2
-	// const update = {};
-	// if (title) {
-	// 	update.title = title;
-	// }
-	// if (content) {
-	// 	update.content = content;
-	// }
 
-	// const article = await Article.findById(id, update, { new: true });
+	const user = req.user;
+	const update = {};
+	if (title) {
+		update.title = title;
+	}
+	if (content) {
+		update.content = content;
+	}
+
+	const article = await Article.findOneAndUpdate({
+		_id: id,
+		'publisher.id': user.id
+	}, update, { new: true });
+
+	if (!article) return res.status(403).json({
+		msg: "You Are Not Allowed For This Action"
+	})
 
 	res.status(200).json({ article });
 });
