@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const { Article } = require('../models/article.model');
+const {ValidateToken} = require('../middlewares/validate-token.middleware')
 /**
  * {
  *  id: string,
@@ -56,10 +57,9 @@ router.get('/:id', async (req, res) => {
 });
 
 // /article
-router.post('/', async (req, res) => {
+router.post('/',ValidateToken,  async (req, res) => {
 	const { title, content } = req.body;
-	lastId++;
-
+	// lastId++;
 	// const article = {
 	//     id: lastId,
 	//     title,
@@ -69,11 +69,10 @@ router.post('/', async (req, res) => {
 	// }
 
 	// articles.push(article)
-
 	const article = new Article({
 		title,
 		content,
-		publisher: user,
+		publisher: req.user,
 	});
 
 	await article.save();
@@ -81,9 +80,34 @@ router.post('/', async (req, res) => {
 	res.status(201).json({
 		article,
 	});
+
+	// const { title, content, } = req.body;
+	// lastId++;
+
+	// // const article = {
+	// //     id: lastId,
+	// //     title,
+	// //     content,
+	// //     createdAt: new Date(),
+	// //     publisher: user
+	// // }
+
+	// // articles.push(article)
+
+	// const article = new Article({
+	// 	title,
+	// 	content,
+	// 	publisher: user,
+	// });
+
+	// await article.save();
+
+	// res.status(201).json({
+	// 	article,
+	// });
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id',ValidateToken, async (req, res) => {
 	const { id } = req.params;
 	const { title, content } = req.body;
 
@@ -100,36 +124,42 @@ router.put('/:id', async (req, res) => {
 
 	// OPTION 1
 
-	// const article = await Article.findById(id);
-	// article.title = title ? title : article.title;
-    // article.content = content ? content :article.content;
-    // await article.save()
+	const user = req.user;
+
+	const article = await Article.findById(id);
 
 
-    // OPTION 2
-    const update = {}
-    if (title) {
-        update.title = title
-    }
-    if (content) {
-        update.content = content
-    }
+	if (article.publisher.id != user.id) return res.status(403).json({
+		msg: "You Are Not Allowed For This Action"
+	})
 
-    const article = await Article.findByIdAndUpdate(id, update, { new: true });
+	article.title = title ? title : article.title;
+	article.content = content ? content :article.content;
+	await article.save()
+
+	// OPTION 2
+	// const update = {};
+	// if (title) {
+	// 	update.title = title;
+	// }
+	// if (content) {
+	// 	update.content = content;
+	// }
+
+	// const article = await Article.findById(id, update, { new: true });
 
 	res.status(200).json({ article });
 });
 
 router.delete('/:id', async (req, res) => {
-    const {id} = req.params;
+	const { id } = req.params;
 
-    const article = await Article.findByIdAndDelete(id)
+	const article = await Article.findByIdAndDelete(id);
 
-    if (!article) return res.status(404).json({msg: 'article not found with given id'})
+	if (!article) return res.status(404).json({ msg: 'article not found with given id' });
 
-    res.status(200).json({
-        msg: 'Article Deleted Successfully'
-    })
-
-})
+	res.status(200).json({
+		msg: 'Article Deleted Successfully',
+	});
+});
 module.exports = router;

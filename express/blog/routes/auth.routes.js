@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt')
 const {User} = require('../models/user.model')
 const {UserDTO} = require('../dto/user.dto')
 
+const jwt = require('jsonwebtoken')
+
 router.post('/signup', async (req, res) => {
     const {name, email, password} = req.body
 
@@ -42,8 +44,12 @@ router.post('/signin', async (req, res) => {
     if (!correctPassword) return res.status(401).json({msg: "Invalid Credentials Data"})
 
     const userData = UserDTO(user);
+
+    const token = jwt.sign(userData, 'adcgjhsgcdas')
+
     res.status(200).json({
-        user: userData
+        user: userData,
+        token
     })
 
 })
