@@ -1,0 +1,11 @@
+TODO SYSTEM API for
+
+
+// Authentication
+// signup
+// signin
+
+// TODO
+1: each user can add his own todos
+2: each user can update, delete his own todos
+3: any user can get any todo, todoList
