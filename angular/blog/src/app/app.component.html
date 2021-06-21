@@ -1,0 +1,29 @@
+<div>
+  <!-- <h1 id="bla bla bla" >
+  {{ show ? title : 'Not Allowed To Show Title' }}
+</h1> -->
+  <!--
+<h1 [id]="product.id" class="title" [class.green]="product.av" [class.red]="!product.av">
+  {{ product.name }}
+</h1> -->
+
+  <!-- <h1 [id]="product.id" class="title"   [ngClass]="productClasses()">
+    {{ product.name }}
+  </h1> -->
+<!--
+  <h1 [id]="product.id" class="title" [ngClass]="productClasses()" [style.fontSize]="product.av ? '3rem' : '2rem'">
+    {{ product.name }}
+  </h1> -->
+
+
+  <h1
+    [id]="product.id"
+    class="title"
+    [ngClass]="productClasses()"
+    [ngStyle]="productStyles()"
+  >
+    {{ product.name }}
+  </h1>
+  <!-- <input type="text" placeholder="Amount" disabled="{{!product.av}}" > -->
+  <input type="text" placeholder="Amount" [disabled]="!product.av" />
+</div>
