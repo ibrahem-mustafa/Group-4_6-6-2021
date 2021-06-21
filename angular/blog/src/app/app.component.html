@@ -25,5 +25,10 @@
     {{ product.name }}
   </h1>
   <!-- <input type="text" placeholder="Amount" disabled="{{!product.av}}" > -->
-  <input type="text" placeholder="Amount" [disabled]="!product.av" />
+  <!-- <input #amountInput type="number"  placeholder="Amount" [disabled]="!product.av"  (keyup)="updateAmount(amountInput)" [value]="product.amount"/> -->
+
+  <input #amountInput type="number"  placeholder="Amount" [disabled]="!product.av" [(ngModel)]="product.amount"/>
+
+  <button (click)="changeAv()" >Update</button>
+  <button (click)="print()" >Print</button>
 </div>

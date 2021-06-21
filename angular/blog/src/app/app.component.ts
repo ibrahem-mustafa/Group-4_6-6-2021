@@ -17,7 +17,8 @@ export class AppComponent {
   product = {
     id: '312498279854',
     name: 'Product One',
-    av: false
+    av: false,
+    amount: 10
   }
 
   productClasses() {
@@ -37,4 +38,31 @@ export class AppComponent {
   pageTitle() {
     return this.title + ' By method'
   }
+
+
+  changeAv() {
+    this.product.av = !this.product.av
+  }
+
+  updateAmount(input: HTMLInputElement) {
+
+
+    /**const input = event.target! as HTMLInputElement
+
+    //if (!input) return;
+
+
+    */
+   this.product.amount = +input.value
+  }
+
+  print() {
+    console.log(this.product)
+  }
+
+  alert() {
+    window.alert('Mouse Enter')
+  }
+
 }
+
