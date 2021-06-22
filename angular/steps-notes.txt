@@ -18,6 +18,7 @@
 ****** Structural Directives ******
 1: ngIf // [*ngIf = "value || condition"]  || [*ngIf="condition; else "templateVariable"] 
 2: ngSwitch // a: For Parent => [ngSwitch] = "switchVariable" | b: For Child => *ngSwitchCase="switchCaseValue"
+
 3: ngFor // *ngFor="let variable of list; index as i; first as f; last as l; odd as o; even as e"
 ***********************************2
 4: Component Interactions // @Input() & @Output()

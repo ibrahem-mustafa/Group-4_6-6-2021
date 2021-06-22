@@ -10,25 +10,62 @@
   <!-- <h1 [id]="product.id" class="title"   [ngClass]="productClasses()">
     {{ product.name }}
   </h1> -->
-<!--
+  <!--
   <h1 [id]="product.id" class="title" [ngClass]="productClasses()" [style.fontSize]="product.av ? '3rem' : '2rem'">
     {{ product.name }}
   </h1> -->
 
-
-  <h1
+  <!-- <h1
     [id]="product.id"
     class="title"
     [ngClass]="productClasses()"
     [ngStyle]="productStyles()"
   >
     {{ product.name }}
-  </h1>
+  </h1> -->
   <!-- <input type="text" placeholder="Amount" disabled="{{!product.av}}" > -->
   <!-- <input #amountInput type="number"  placeholder="Amount" [disabled]="!product.av"  (keyup)="updateAmount(amountInput)" [value]="product.amount"/> -->
-
+  <!--
   <input #amountInput type="number"  placeholder="Amount" [disabled]="!product.av" [(ngModel)]="product.amount"/>
 
   <button (click)="changeAv()" >Update</button>
-  <button (click)="print()" >Print</button>
+  <button (click)="print()" >Print</button> -->
+
+  <!-- --------------------------------------------- -->
+  <!-------------------- SESSION 2 -------------------->
+  <!-- --------------------------------------------- -->
+
+  <!--
+  <button
+    *ngIf="!signedIn; else userSigned"
+    (click)="toggleSignedInState()"
+  >
+    Signin
+  </button> -->
+
+  <!-- <ng-template #userSigned >
+    <div [ngSwitch]="user.type" >
+      <p *ngSwitchCase="'user'" >This Is Default User View</p>
+      <p *ngSwitchCase="'admin'" >This Is Admin View</p>
+      <p *ngSwitchCase="'employee'" >This Is Employee View</p>
+      <p *ngSwitchDefault >
+        Not Allowed User Type
+      </p>
+
+    </div>
+  </ng-template> -->
+
+  <!-- <div
+    *ngFor="let todo of todos; index as i; first as f; last as l; odd as o; even as e"
+    [id]="todo.id"
+    [style.borderBottom]="l ? 'none' : '1px solid #888'"
+    [style.backgroundColor]="o ? '#DDD' : ''"
+  >
+    <h3>{{ i + 1 }} - {{ todo.title }}</h3>
+    <p>UserID: {{ todo.userId }}</p>
+    <p>isFirstItem: {{ f }} || isLastElement: {{ l }}</p>
+  </div> -->
+
+
+  <app-todolist></app-todolist>
 </div>

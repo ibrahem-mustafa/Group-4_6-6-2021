@@ -3,13 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-
-
 export class AppComponent {
-
-  show = false;
+  /** show = false;
   title = 'Hello From Angular';
 
 
@@ -52,7 +49,7 @@ export class AppComponent {
     //if (!input) return;
 
 
-    */
+
    this.product.amount = +input.value
   }
 
@@ -64,5 +61,49 @@ export class AppComponent {
     window.alert('Mouse Enter')
   }
 
+  signedIn: boolean = true;
+
+  user = {
+    name: 'Ahmed',
+    type: 'employee', // user || admin || employee
+  };
+
+  toggleSignedInState() {
+    this.signedIn = !this.signedIn;
+  }
+
+  todos = [
+    {
+      userId: 1,
+      id: 1,
+      title: 'delectus aut autem',
+      completed: false,
+    },
+    {
+      userId: 345354,
+      id: 2,
+      title: 'quis ut nam facilis et officia qui',
+      completed: false,
+    },
+    {
+      userId: 67575,
+      id: 3,
+      title: 'fugiat veniam minus',
+      completed: false,
+    },
+    {
+      userId: 9789789,
+      id: 4,
+      title: 'et porro tempora',
+      completed: true,
+    },
+    {
+      userId: 123412,
+      id: 5,
+      title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
+      completed: false,
+    },
+  ];
+  */
 }
 
