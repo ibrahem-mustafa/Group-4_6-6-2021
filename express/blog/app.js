@@ -3,14 +3,14 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const {connectToDB} = require('./config/db.config')
-
+const cors = require('cors')
 const articleRouter = require('./routes/article.routes')
 const authRouter = require('./routes/auth.routes');
 
 var app = express();
 
 connectToDB();
-
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

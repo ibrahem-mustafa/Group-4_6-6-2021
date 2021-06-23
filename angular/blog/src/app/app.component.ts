@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  /** show = false;
   title = 'Hello From Angular';
+  date = new Date()
+  /** show = false;
 
 
 

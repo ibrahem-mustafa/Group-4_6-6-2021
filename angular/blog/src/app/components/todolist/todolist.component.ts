@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from 'src/app/services/todo-service.service';
 
 @Component({
   selector: 'app-todolist',
@@ -6,44 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit {
-  constructor() {}
+  constructor(private todosService: TodoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  todos = [
-    {
-      userId: 1,
-      id: 1,
-      title: 'delectus aut autem',
-      completed: false,
-    },
-    {
+  get todos() {
+    return this.todosService.todos;
+  }
+
+  /**deleteTodo(id: number) {
+    this.todosService.todos = this.todos.filter((todo) => todo.id != id);
+  }
+
+  addTodo(title: string) {
+    this.todos.push({
       userId: 345354,
       id: 2,
-      title: 'quis ut nam facilis et officia qui',
+      title,
       completed: false,
-    },
-    {
-      userId: 67575,
-      id: 3,
-      title: 'fugiat veniam minus',
-      completed: false,
-    },
-    {
-      userId: 9789789,
-      id: 4,
-      title: 'et porro tempora',
-      completed: true,
-    },
-    {
-      userId: 123412,
-      id: 5,
-      title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
-      completed: false,
-    },
-  ];
-
-  deleteTodo(id: number) {
-    this.todos = this.todos.filter(todo => todo.id != id)
-  }
+    });
+  }*/
 }
