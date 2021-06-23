@@ -9,6 +9,10 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { TodolistItemComponent } from './components/todolist-item/todolist-item.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DefaultNavComponent } from './components/nav-bar/default-nav/default-nav.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { SigninComponent } from './pages/signin/signin.component';
     TodolistComponent,
     TodolistItemComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent,
+    DefaultNavComponent,
+    NotFoundComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,
