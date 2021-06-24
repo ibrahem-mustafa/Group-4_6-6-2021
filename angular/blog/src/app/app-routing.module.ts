@@ -1,3 +1,4 @@
+import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
     path: 'signin',
     component: SigninComponent,
   },
+  {path: 'articles', component: ArticlesComponent},
   {
     path: 'articles/:id',
     component: ArticleDetailsComponent

@@ -30,15 +30,15 @@ const user = {
 const articles = [];
 let lastId = 0;
 
-router.get('/', async (req, res) => {
-	const articles = await Article.find();
+router.get('/', ValidateToken, async (req, res) => {
+	const articles = await Article.find({'publisher.id': req.user.id});
 	res.status(200).json({
 		articles,
 	});
 });
 
 // /article/{articleId}
-router.get('/:id', async (req, res) => {
+router.get('/:id',ValidateToken, async (req, res) => {
 	const { id } = req.params;
 
 	// const article = articles.find((art) => art.id == id);
@@ -160,10 +160,10 @@ router.put('/:id',ValidateToken, async (req, res) => {
 	res.status(200).json({ article });
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',ValidateToken, async (req, res) => {
 	const { id } = req.params;
 
-	const article = await Article.findByIdAndDelete(id);
+	const article = await Article.findOneAndDelete({_id: id, 'publisher.id': req.user.id});
 
 	if (!article) return res.status(404).json({ msg: 'article not found with given id' });
 

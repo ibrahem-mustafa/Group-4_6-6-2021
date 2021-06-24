@@ -13,6 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { DefaultNavComponent } from './components/nav-bar/default-nav/default-nav.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
+import { ArticleFormComponent } from './pages/article-form/article-form.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ArticleDetailsComponent } from './pages/article-details/article-details
     HomeComponent,
     DefaultNavComponent,
     NotFoundComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    ArticleFormComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,
