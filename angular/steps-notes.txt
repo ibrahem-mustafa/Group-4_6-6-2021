@@ -51,3 +51,15 @@
 => publishers => publish his own articles => add article => edit article => view articles
 => user => see all articles
 
+// >> pages <<
+
+// home page
+// articles page
+// article details
+// add/edit article page
+// signup/signin pages
+
+// >> services <<
+// auth service
+// user service
+// articles service

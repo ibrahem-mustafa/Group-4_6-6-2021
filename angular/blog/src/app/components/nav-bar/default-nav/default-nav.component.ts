@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-default-nav',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  get userLoggedIn():boolean {
+    return this.userService.isLoggedIn()
+  }
+
+  signout() {
+    this.userService.clear();
+    this.router.navigate(['signin'])
   }
 
 }

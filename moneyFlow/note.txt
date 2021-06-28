@@ -1,0 +1,13 @@
+// Authentication
+// => Signup
+// => Signin
+
+// swift
+// => Branches (e: bank account | cash | visa)
+// ==> fetch branches
+// ==> create branch
+// ==> update branch
+// => Transactions (income | expense | transfer)
+// ==> create transaction
+// ==> delete transaction
+// ==> fetch transactions

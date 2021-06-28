@@ -15,6 +15,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import { ArticleListComponent } from './components/article-list/article-list.component';
+import { ArticleListItemComponent } from './components/article-list-item/article-list-item.component';
+import { ActionsNavComponent } from './components/nav-bar/actions-nav/actions-nav.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { ArticlesComponent } from './pages/articles/articles.component';
     NotFoundComponent,
     ArticleDetailsComponent,
     ArticleFormComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    ArticleListComponent,
+    ArticleListItemComponent,
+    ActionsNavComponent
   ],
   imports: [
     BrowserModule,
