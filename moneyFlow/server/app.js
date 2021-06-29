@@ -3,6 +3,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const authRoutes = require('./routes/auth.routes')
+const swiftRoutes = require('./routes/swift.routes')
 const { connectDB } = require('./db/connect');
 connectDB()
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/auth', authRoutes)
+app.use('/swift', swiftRoutes)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
