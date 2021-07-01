@@ -4,11 +4,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const authRoutes = require('./routes/auth.routes')
 const swiftRoutes = require('./routes/swift.routes')
+const cors = require('cors')
 const { connectDB } = require('./db/connect');
 connectDB()
 
 var app = express();
 
+
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
